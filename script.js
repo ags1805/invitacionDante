@@ -29,6 +29,7 @@ function updateCountdown() {
         document.getElementById('days').innerText = Math.floor(gap / day);
         document.getElementById('hours').innerText = Math.floor((gap % day) / hour);
         document.getElementById('minutes').innerText = Math.floor((gap % hour) / minute);
+        document.getElementById('seconds').innerText = Math.floor((gap % minute) / second);
     }
 }
 

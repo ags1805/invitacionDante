@@ -20,7 +20,11 @@ body {
     text-align: center;
 }
 
-h1, h2, h3 {
+h1 {
+    font-family: 'Alex Brush';
+}
+
+h2, h3 {
     font-family: 'Fredoka One', cursive;
 }
 
@@ -71,6 +75,7 @@ h1, h2, h3 {
     font-size: 3.5rem;
     color: var(--color-secondary);
     text-shadow: 2px 2px var(--color-light);
+    /*text-shadow: 2px 2px var(--color-light);*/
 }
 
 /* --- Cards --- */
