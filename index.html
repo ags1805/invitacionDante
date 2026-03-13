@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Mi Primer Año! - Dante</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="stars-container"></div>
+
+    <main class="container">
+        
+        <section class="hero reveal">
+            <div class="rocket-wrapper">
+                <span class="rocket">🚀</span>
+            </div>
+            <h2 class="subtitle">Mi primer año</h2>
+            <h1 class="title">Dante</h1>
+            <p class="tagline">¡Despegamos hacia una aventura inolvidable!</p>
+        </section>
+
+        <section class="countdown-section reveal">
+            <h3>Faltan:</h3>
+            <div id="countdown">
+                <div class="time-unit"><span id="days">00</span><small>Días</small></div>
+                <div class="time-unit"><span id="hours">00</span><small>Hs</small></div>
+                <div class="time-unit"><span id="minutes">00</span><small>Min</small></div>
+            </div>
+        </section>
+
+        <section class="info-card reveal">
+            <div class="info-item">
+                <span class="icon">📅</span>
+                <p><strong>16 de Agosto, 2026</strong></p>
+            </div>
+            <div class="info-item">
+                <span class="icon">⏰</span>
+                <p>15:00 a 18:00 hs</p>
+            </div>
+            <div class="info-item">
+                <span class="icon">📍</span>
+                <p>Laprida 4063, Villa Lynch</p>
+            </div>
+            <a href="https://www.google.com/maps?q=Laprida+4063,+Villa+Lynch" target="_blank" class="btn btn-secondary">
+                Ver Ubicación en Maps
+            </a>
+        </section>
+
+        <section class="rsvp-section reveal">
+            <h3>Confirmar Asistencia</h3>
+            <form id="rsvp-form">
+                <input type="text" id="guest-name" placeholder="Tu nombre" required>
+                <input type="number" id="guest-count" placeholder="¿Cuántos vienen?" min="1" required>
+                <button type="submit" class="btn btn-primary">Enviar por Web</button>
+            </form>
+            <hr>
+            <p>O confirmame por aquí:</p>
+            <a href="https://wa.me/5491112345678?text=Hola!%20Confirmo%20asistencia%20para%20el%20cumple%20de%20Dante" class="btn btn-whatsapp">
+                Confirmar por WhatsApp
+            </a>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
