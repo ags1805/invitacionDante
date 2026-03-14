@@ -1,9 +1,14 @@
 :root {
-    --color-primary: #4F6F7A;    /* Azul grisáceo */
-    --color-secondary: #E88A6A;  /* Coral/Naranja */
-    --color-accent: #F5C45A;     /* Amarillo sol */
-    --color-bg: #C9DDE0;         /* Celeste suave */
-    --color-light: #F3EFEA;      /* Crema */
+    --color-primary: #4F6F7A;
+    /* Azul grisáceo */
+    --color-secondary: #E88A6A;
+    /* Coral/Naranja */
+    --color-accent: #F5C45A;
+    /* Amarillo sol */
+    --color-bg: #C9DDE0;
+    /* Celeste suave */
+    --color-light: #F3EFEA;
+    /* Crema */
 }
 
 * {
@@ -14,10 +19,26 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(180deg, var(--color-primary) 0%, #a8c8cf 100%);
+    /* Degradado profundo a claro + imagen de fondo para el Sol */
+    background:
+        /* 3. El Sol Infantil (ubicado abajo) */
+        radial-gradient(circle at bottom, var(--color-accent) 0%, transparent 40%),
+        /* 2. El degradado del cielo */
+        linear-gradient(180deg, var(--color-primary) 0%, var(--color-bg) 60%, var(--color-bg) 100%),
+        /* 1. Color plano de base */
+        var(--color-bg);
+    background-size: 100% 100%, 100% 100%, 100% 100%;
     color: var(--color-primary);
     overflow-x: hidden;
     text-align: center;
+    position: relative;
+    /* Importante para posicionar los ovnis */
+}
+
+/* --- Ajuste para las tarjetas para que no se "peguen" al Sol --- */
+.container {
+    padding-bottom: 80px;
+    /* Espacio para que el Sol respire */
 }
 
 h1 {
@@ -45,7 +66,10 @@ p {
 /* --- Animación Estrellas --- */
 #stars-container {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -1;
     pointer-events: none;
 }
@@ -59,8 +83,17 @@ p {
 }
 
 @keyframes twinkle {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.5); opacity: 0.8; }
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
 }
 
 /* --- Hero --- */
@@ -75,24 +108,42 @@ p {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(5deg); }
-    50% { transform: translateY(-20px) rotate(-5deg); }
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(5deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(-5deg);
+    }
+}
+
+.hero h2 {
+    font-size: 2rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .title {
-    font-size: 3.5rem;
+    font-size: 6rem;
     color: var(--color-secondary);
     text-shadow: 2px 2px var(--color-light);
 }
 
 /* --- Cards --- */
-.countdown-section, .info-card, .rsvp-section {
+.countdown-section,
+.info-card,
+.rsvp-section {
     background: var(--color-bg);
     backdrop-filter: blur(5px);
     border-radius: 25px;
     padding: 25px;
     margin-bottom: 30px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 .info-card p {
@@ -124,11 +175,27 @@ p {
     transition: transform 0.2s;
 }
 
-.btn:active { transform: scale(0.95); }
+.btn:active {
+    transform: scale(0.95);
+}
 
-.btn-primary { background: var(--color-secondary); color: white; border: none; font-size: 1rem; cursor: pointer; }
-.btn-secondary { background: var(--color-primary); color: white; }
-.btn-whatsapp { background: #25D366; color: white; }
+.btn-primary {
+    background: var(--color-secondary);
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+}
 
 /* --- Forms --- */
 input {
@@ -156,26 +223,29 @@ input {
 
 .info-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas para fecha y hora */
+    grid-template-columns: 1fr 1fr;
+    /* Dos columnas para fecha y hora */
     gap: 15px;
     margin-bottom: 20px;
 }
 
 .info-item {
-    background: white; /* Fondo blanco para que resalte sobre el celeste */
+    background: white;
+    /* Fondo blanco para que resalte sobre el celeste */
     padding: 15px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* El ítem de la ubicación ocupa las dos columnas para que se vea más grande */
 .info-item:last-of-type {
     grid-column: span 2;
-    flex-direction: row; /* Icono al lado del texto para la dirección */
+    flex-direction: row;
+    /* Icono al lado del texto para la dirección */
     gap: 10px;
 }
 
@@ -190,7 +260,7 @@ input {
     line-height: 1.2;
     font-weight: 500;
     /* Sobrescribimos el color de los párrafos globales para estos ítems */
-    color: var(--color-primary) !important; 
+    color: var(--color-primary) !important;
 }
 
 /* Ajuste para el botón de Maps */
@@ -205,3 +275,250 @@ input {
     color: var(--color-primary);
     border-color: var(--color-primary);
 }
+
+/* --- OVNI Amistoso (Background Object) --- */
+.ufo-wrapper {
+    position: fixed;
+    width: 60px;
+    height: 40px;
+    top: 20%; /* Altura aleatoria inicial */
+    left: -100px; /* Empieza fuera de pantalla */
+    z-index: -1; /* Detrás de las secciones */
+    opacity: 0.6; /* Un poco transparente para no distraer */
+    animation: fly-ufo 25s infinite linear;
+    animation-delay: 5s; /* Tarda un poco en aparecer */
+}
+
+/* Dibujamos un OVNI básico con puros bordes y sombras (sin imagen) */
+.ufo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #a5abb6; /* Color metalizado suave */
+    border-radius: 50px / 25px; /* Forma elíptica */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.ufo::before {
+    content: '';
+    position: absolute;
+    top: -10px; left: 50%;
+    transform: translateX(-50%);
+    width: 30px; height: 15px;
+    background: rgba(255, 255, 255, 0.7); /* La cúpula */
+    border-radius: 20px 20px 0 0;
+}
+
+.ufo::after {
+    content: '👽'; /* ¡El Marciano Amistoso! */
+    position: absolute;
+    font-size: 1.2rem;
+    top: -15px; left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Luces del OVNI */
+.ufo-lights {
+    position: absolute;
+    bottom: 5px; left: 10px; right: 10px;
+    display: flex; justify-content: space-around;
+}
+
+.light {
+    width: 6px; height: 6px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    animation: blink-light 1s infinite alternate;
+}
+.light:nth-child(2) { animation-delay: 0.3s; background: var(--color-secondary); }
+.light:nth-child(3) { animation-delay: 0.6s; background: #25D366; }
+
+@keyframes fly-ufo {
+    0% { left: -100px; transform: translateY(0); }
+    20% { transform: translateY(-30px); }
+    40% { transform: translateY(10px); }
+    60% { transform: translateY(-10px); }
+    80% { transform: translateY(20px); }
+    100% { left: 110vw; transform: translateY(0); } /* Cruza toda la pantalla */
+}
+
+@keyframes blink-light {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+/* --- Ajuste del OVNI Amistoso (Ya lo tenías, solo cambiamos tiempos) --- */
+.ufo-wrapper {
+    /* ... (Mantené tu código de .ufo-wrapper, .ufo, .ufo::before, .ufo::after, .ufo-lights, .light y @keyframes blink-light) ... */
+    animation: fly-ufo-1 30s infinite linear; /* Más lento y con trayectoria más variada */
+    animation-delay: 2s;
+}
+
+@keyframes fly-ufo-1 {
+    0% { left: -100px; transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-30px) rotate(15deg); }
+    50% { transform: translateY(10px) rotate(-10deg); }
+    75% { transform: translateY(-15px) rotate(5deg); }
+    100% { left: 110vw; transform: translateY(0) rotate(0deg); }
+}
+
+/* --- Nuevo OVNI #2 (para que haya más movimiento) --- */
+.ufo-wrapper.ufo-2 {
+    top: 60%; /* Posición vertical diferente */
+    width: 45px; height: 30px; /* Un poco más chico */
+    opacity: 0.4; /* Más transparente */
+    animation: fly-ufo-2 25s infinite linear reverse; /* Va en dirección opuesta */
+    animation-delay: 10s;
+}
+
+@keyframes fly-ufo-2 {
+    0% { left: 110vw; transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-40px) rotate(-15deg); }
+    50% { transform: translateY(20px) rotate(10deg); }
+    75% { transform: translateY(-20px) rotate(-5deg); }
+    100% { left: -100px; transform: translateY(0) rotate(0deg); }
+}
+
+/* --- Astronauta Flotando --- */
+.astronaut-wrapper {
+    position: fixed;
+    font-size: 3rem; /* Tamaño grande para el emoji */
+    top: 40%;
+    left: 10%;
+    z-index: -1;
+    opacity: 0.5;
+    animation: float-astronaut 15s infinite ease-in-out;
+}
+
+@keyframes float-astronaut {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(10px, -15px) rotate(5deg); }
+    50% { transform: translate(-5px, 10px) rotate(-10deg); }
+    75% { transform: translate(-10px, -5px) rotate(3deg); }
+}
+
+/* --- Asteroide Errante --- */
+.asteroid-wrapper {
+    position: fixed;
+    font-size: 2rem;
+    top: 70%;
+    right: 15%;
+    z-index: -1;
+    opacity: 0.3;
+    animation: tumble-asteroid 20s infinite linear;
+}
+
+@keyframes tumble-asteroid {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-20px, -10px) rotate(180deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+/* --- Satélite en Órbita --- */
+.satellite-wrapper {
+    position: fixed;
+    font-size: 2.5rem;
+    bottom: 10%;
+    left: 50%;
+    z-index: -1;
+    opacity: 0.4;
+    animation: orbit-satellite 25s infinite ease-in-out;
+}
+
+@keyframes orbit-satellite {
+    0% { transform: translate(-50%, 0) rotate(0deg); }
+    25% { transform: translate(-45%, -5px) rotate(-5deg); }
+    50% { transform: translate(-50%, -10px) rotate(0deg); }
+    75% { transform: translate(-55%, -5px) rotate(5deg); }
+    100% { transform: translate(-50%, 0) rotate(0deg); }
+}
+
+/* --- Contenedor Global de Objetos --- */
+.space-objects-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.moving-object {
+    position: absolute;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* --- Animación Maestra de Vuelo --- */
+@keyframes fly-across {
+    0% { left: -150px; transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-50px) rotate(20deg); }
+    50% { transform: translateY(50px) rotate(-10deg); }
+    75% { transform: translateY(-30px) rotate(10deg); }
+    100% { left: 115vw; transform: translateY(0) rotate(360deg); }
+}
+
+/* --- Personalización de cada objeto --- */
+
+.ufo-1 {
+    top: 15%;
+    animation: fly-across 20s infinite linear;
+}
+
+.ufo-2 {
+    top: 55%;
+    animation: fly-across 28s infinite linear reverse; /* Va para el otro lado */
+    animation-delay: 5s;
+}
+
+.astronaut {
+    font-size: 3rem;
+    top: 35%;
+    animation: fly-across 25s infinite ease-in-out;
+    animation-delay: 2s;
+}
+
+.satellite {
+    font-size: 2.5rem;
+    top: 75%;
+    animation: fly-across 35s infinite linear;
+    animation-delay: 12s;
+}
+
+.rock {
+    font-size: 2rem;
+    top: 45%;
+    filter: hue-rotate(45deg); /* Le da un tono distinto */
+    animation: fly-across 15s infinite linear reverse;
+    animation-delay: 8s;
+}
+
+/* --- El OVNI (Mantené el estilo que ya teníamos) --- */
+.ufo {
+    position: relative;
+    width: 60px; height: 35px;
+    background: #bdc3c7;
+    border-radius: 50px / 25px;
+}
+.ufo.small { width: 40px; height: 25px; opacity: 0.7; }
+
+.ufo::before {
+    content: ''; position: absolute; top: -10px; left: 50%;
+    transform: translateX(-50%); width: 25px; height: 12px;
+    background: rgba(255, 255, 255, 0.8); border-radius: 20px 20px 0 0;
+}
+
+.ufo::after {
+    content: '👽'; position: absolute; font-size: 1rem;
+    top: -12px; left: 50%; transform: translateX(-50%);
+}
+
+.ufo-lights {
+    position: absolute; bottom: 5px; left: 5px; right: 5px;
+    display: flex; justify-content: space-around;
+}
+
+.light { width: 5px; height: 5px; border-radius: 50%; animation: blink-light 0.5s infinite alternate; }
+.light:nth-child(1) { background: #ff4757; }
+.light:nth-child(2) { background: #2ed573; animation-delay: 0.2s; }
+.light:nth-child(3) { background: #1e90ff; animation-delay: 0.4s; }
+
+@keyframes blink-light { from { opacity: 0.2; } to { opacity: 1; } }
