@@ -19,21 +19,42 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
-    /* Degradado profundo a claro + imagen de fondo para el Sol */
+    color: var(--color-primary);
+    overflow-x: hidden;
+    text-align: center;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* ESTO MANTIENE LA MAGIA */
+.fixed-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Detrás de estrellas y objetos */
     background:
-        /* 3. El Sol Infantil (ubicado abajo) */
+        /* El Sol Infantil */
         radial-gradient(circle at bottom, var(--color-accent) 0%, transparent 40%),
-        /* 2. El degradado del cielo */
+        /* El degradado del cielo */
+        linear-gradient(180deg, var(--color-primary) 0%, var(--color-bg) 60%, var(--color-bg) 100%);
+    background-size: 100% 100%;
+}
+
+/*
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: radial-gradient(circle at bottom, var(--color-accent) 0%, transparent 40%),
         linear-gradient(180deg, var(--color-primary) 0%, var(--color-bg) 60%, var(--color-bg) 100%),
-        /* 1. Color plano de base */
+
         var(--color-bg);
     background-size: 100% 100%, 100% 100%, 100% 100%;
     color: var(--color-primary);
     overflow-x: hidden;
     text-align: center;
     position: relative;
-    /* Importante para posicionar los ovnis */
-}
+} */
 
 /* --- Ajuste para las tarjetas para que no se "peguen" al Sol --- */
 .container {
