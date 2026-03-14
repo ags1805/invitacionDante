@@ -17,7 +17,7 @@ function createStars() {
 }
 
 // 2. Contador Regresivo
-const targetDate = new Date("August 16, 2026 15:00:00").getTime();
+const targetDate = new Date("August 16, 2026 16:00:00").getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();

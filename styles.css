@@ -14,7 +14,7 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(180deg, var(--color-bg) 0%, #a8c8cf 100%);
+    background: linear-gradient(180deg, var(--color-primary) 0%, #a8c8cf 100%);
     color: var(--color-primary);
     overflow-x: hidden;
     text-align: center;
@@ -26,6 +26,14 @@ h1 {
 
 h2, h3 {
     font-family: 'Fredoka One', cursive;
+}
+
+h2 {
+    color: var(--color-bg);
+}
+
+p {
+    color: var(--color-bg);
 }
 
 .container {
@@ -75,17 +83,20 @@ h2, h3 {
     font-size: 3.5rem;
     color: var(--color-secondary);
     text-shadow: 2px 2px var(--color-light);
-    /*text-shadow: 2px 2px var(--color-light);*/
 }
 
 /* --- Cards --- */
 .countdown-section, .info-card, .rsvp-section {
-    background: rgba(243, 239, 234, 0.8);
+    background: var(--color-bg);
     backdrop-filter: blur(5px);
     border-radius: 25px;
     padding: 25px;
     margin-bottom: 30px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.info-card p {
+    color: var(--color-primary);
 }
 
 #countdown {
@@ -139,4 +150,58 @@ input {
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* --- Mejoras en la Info Card --- */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas para fecha y hora */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    background: white; /* Fondo blanco para que resalte sobre el celeste */
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* El ítem de la ubicación ocupa las dos columnas para que se vea más grande */
+.info-item:last-of-type {
+    grid-column: span 2;
+    flex-direction: row; /* Icono al lado del texto para la dirección */
+    gap: 10px;
+}
+
+.info-item .icon {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    font-weight: 500;
+    /* Sobrescribimos el color de los párrafos globales para estos ítems */
+    color: var(--color-primary) !important; 
+}
+
+/* Ajuste para el botón de Maps */
+.btn-secondary {
+    margin-top: 5px;
+    background-color: var(--color-primary);
+    border: 2px solid transparent;
+}
+
+.btn-secondary:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
 }

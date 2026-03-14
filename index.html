@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Mi Primer Año! - Dante</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;700&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Homemade+Apple&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Homemade+Apple&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <div id="stars-container"></div>
 
     <main class="container">
-        
+
         <section class="hero reveal">
             <div class="rocket-wrapper">
                 <span class="rocket">🚀</span>
@@ -35,19 +39,21 @@
         </section>
 
         <section class="info-card reveal">
-            <div class="info-item">
-                <span class="icon">📅</span>
-                <p><strong>16 de Agosto, 2026</strong></p>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="icon">📅</span>
+                    <p><strong>16 de Agosto</strong></p>
+                </div>
+                <div class="info-item">
+                    <span class="icon">⏰</span>
+                    <p>16 a 19hs</p>
+                </div>
+                <div class="info-item">
+                    <span class="icon">📍</span>
+                    <p>Laprida 4063, Villa Lynch</p>
+                </div>
             </div>
-            <div class="info-item">
-                <span class="icon">⏰</span>
-                <p>15:00 a 18:00 hs</p>
-            </div>
-            <div class="info-item">
-                <span class="icon">📍</span>
-                <p>Laprida 4063, Villa Lynch</p>
-            </div>
-            <a href="https://www.google.com/maps?q=Laprida+4063,+Villa+Lynch" target="_blank" class="btn btn-secondary">
+            <a href="https://maps.google.com/?q=Laprida+4063+Villa+Lynch" target="_blank" class="btn btn-secondary">
                 Ver Ubicación en Maps
             </a>
         </section>
@@ -59,9 +65,9 @@
                 <input type="number" id="guest-count" placeholder="¿Cuántos vienen?" min="1" required>
                 <button type="submit" class="btn btn-primary">Enviar por Web</button>
             </form>
-            <hr>
             <p>O confirmame por aquí:</p>
-            <a href="https://wa.me/5491112345678?text=Hola!%20Confirmo%20asistencia%20para%20el%20cumple%20de%20Dante" class="btn btn-whatsapp">
+            <a href="https://wa.me/5491112345678?text=Hola!%20Confirmo%20asistencia%20para%20el%20cumple%20de%20Dante"
+                class="btn btn-whatsapp">
                 Confirmar por WhatsApp
             </a>
         </section>
@@ -70,4 +76,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
