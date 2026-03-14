@@ -543,3 +543,4 @@ input {
 .light:nth-child(3) { background: #1e90ff; animation-delay: 0.4s; }
 
 @keyframes blink-light { from { opacity: 0.2; } to { opacity: 1; } }
+

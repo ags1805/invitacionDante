@@ -47,14 +47,28 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener('DOMContentLoaded', () => {
     createStars();
     setInterval(updateCountdown, 1000);
-    
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Manejo del formulario
+    // Manejo del formulario de WhatsApp
     document.getElementById('rsvp-form').addEventListener('submit', (e) => {
         e.preventDefault();
+
+        // Capturamos los datos
         const name = document.getElementById('guest-name').value;
         const count = document.getElementById('guest-count').value;
-        alert(`¡Gracias ${name}! Confirmaste para ${count} personas.`);
+        const phone = "5491156386925";
+
+        // Armamos el texto 
+        const mensaje = `Hola Dante 🚀 confirmo asistencia. ${name} x${count} 🎂`;
+
+        // Creamos la URL de WhatsApp
+        const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(mensaje)}`;
+
+        // Redirigimos al invitado
+        window.open(whatsappUrl, '_blank');
+
+        // Limpiamos los campos para que quede como nuevo
+        form.reset();
     });
 });
